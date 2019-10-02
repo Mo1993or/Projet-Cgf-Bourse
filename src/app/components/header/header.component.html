@@ -1,0 +1,202 @@
+<header>
+    <nav class="navbar navbar-expand-md fixed-top navbar-light px-5 " style="background-color:white">
+        <a class="navbar-brand mr-4" routerLink="/">
+            <img class="w-75" src="./assets/params/images/logo/cgf_logo.png">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
+            aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+            <ul class="navbar-nav mr-auto" style="font-weight:600;">
+                <!-- <li class="nav-item active mr-3">
+                    <a class="nav-link" style="color:#294070" routerLink="/">
+                        Accueil
+                    </a>
+                </li> -->
+                <li class="nav-item active mr-3">
+                    <a class="nav-link" routerLink="/about" style="color:#294070">
+                        La Bourse
+                    </a>
+                </li>
+                <li class="nav-item active mr-3">
+                    <a class="nav-link" routerLink="/about" style="color:#294070">
+                        Placements
+                    </a>
+                </li>
+                <li class="nav-item active mr-3">
+                    <a class="nav-link" routerLink="/about" style="color:#294070">
+                        Actualités
+                    </a>
+                </li>
+                <!-- <li class="nav-item active ">
+                    <a class="nav-link" routerLink="/contact" style="color:#294070">
+                        Contact
+                    </a>
+                </li> -->
+            </ul>
+            <ul class="navbar-nav ml-auto">
+
+                <li *ngIf="!isLogging" class="nav-item active">
+                    <a class="nav-link">
+                        <button type="button" class="btn btn-primary" data-toggle="modal"
+                            data-target="#myModalConnexion" style="background-color: #294070">CONNEXION</button>
+                    </a>
+                </li>
+                <li *ngIf="isLogging" class="nav-item active mr-5">
+                    <a class="nav-link">
+                        <div class="btn-group">
+                            <button class="btn  dropdown-toggle" type="button" id="dropdownMenuButton"
+                                data-toggle="dropdown">
+                                <svg class="h-50" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M18 18C22.9725 18 27 13.9725 27 9C27 4.0275 22.9725 0 18 0C13.0275 0 9 4.0275 9 9C9 13.9725 13.0275 18 18 18ZM18 22.5C11.9925 22.5 0 25.515 0 31.5V36H36V31.5C36 25.515 24.0075 22.5 18 22.5Z"
+                                        fill="#294070" />
+                                </svg>
+                            </button>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item text-white" style="background-color: #294070;cursor: pointer;"
+                                    (click)="logout()">DECONNEXION</a>
+
+                                <a class="dropdown-item" routerLink="/">ACCUEIL</a>
+
+                            </div>
+                        </div>
+
+
+                    </a>
+                </li>
+                <li *ngIf="!isLogging" class="nav-item active">
+                    <a class="nav-link">
+                        <button type="button" class="btn btn-outline-primary" data-toggle="modal"
+                            data-target="#myModalInscription">INSCRIPTION</button>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>
+<!-- The Modal connexion -->
+<app-connexion (etatLogin)="islogging($event)"></app-connexion>
+
+<!-- <div class="modal" id="myModalConnexion" data-backdrop="static" data-keyboard="false" role="dialog"
+    aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content  ">
+            <div class="modal-body p-0">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div
+                            class="d-flex flex-column justify-content-center position-relative d-none d-lg-block col-lg-7 bg-primary ">
+
+                            <div class=""
+                                style="border: 0.5rem solid white;position:absolute;top:5%;left:5%;right:5%;bottom:5%">
+
+
+                            </div>
+                            <div class="bg-primary position-absolute" style="top:5%;bottom:5%;left:17%;right:17%">
+
+                            </div>
+                            <div class="bg-primary d-flex flex-column justify-content-center position-absolute"
+                                style="top:20%;bottom:20%;left:5%;right:5%">
+                                <div class="text-white d-none d-lg-block text-center" style="font-size:2rem">
+                                    Connectez-vous dans votre espace utilisateur et faites tout en ligne
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-5 ">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <div class="d-flex flex-column justify-content-center py-5 px-2">
+
+                                <h3 class="text-primary text-center pb-3">CONNECTEZ-VOUS</h3>
+                                <div class="p-4">
+                                    <form>
+                                        <div class="form-group">
+                                            <input type="email" name="email" #log class="form-control mb-4"
+                                                placeholder="Adresse Email">
+                                            <input type="password" name="password" #password class="form-control"
+                                                placeholder="Mot de passe">
+                                        </div>
+                                    </form>
+                                    <button class="btn btn-block btn-primary" (click)="login(log.value,password.value)"
+                                        data-dismiss="modal">Connexion</button>
+
+                                    <div class="d-flex flex-column justify-content-center mt-5 mb-3 p-4 bg-light ">
+                                        <h1 class="text-center" style="font-size:1rem">Nouveau chez CGF Bourse?</h1>
+                                        <p class="text-muted text-center">Inscrivez-vous dès maintenant</p>
+                                        <button id="inscrire" class="btn btn-outline-primary"
+                                            routerLink="/inscription">S'inscrire</button>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->
+<!--  -->
+<!-- The Modal Inscription-->
+
+<app-inscription></app-inscription>
+<!-- <div class="modal" id="myModalInscription" data-backdrop="static" role="dialog" data-keyboard="false"
+    aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content  ">
+            <div class="modal-body p-0">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div
+                            class="d-flex flex-column justify-content-center position-relative d-none d-lg-block col-lg-7 bg-primary ">
+
+                            <div class=""
+                                style="border: 0.5rem solid white;position:absolute;top:5%;left:5%;right:5%;bottom:5%">
+
+
+                            </div>
+                            <div class="bg-primary position-absolute" style="top:5%;bottom:5%;left:17%;right:17%">
+
+                            </div>
+                            <div class="bg-primary d-flex flex-column justify-content-center  position-absolute"
+                                style="top:20%;bottom:20%;left:5%;right:5%">
+                                <div class="text-white d-none d-lg-block text-center" style="font-size:2rem">
+                                    Inscrivez-vous et continuez la procédure pour ouvrir un compte épargne facilement
+                                    et tout en ligne
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-5 ">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <div class="d-flex flex-column justify-content-center py-5 px-2">
+
+                                <h3 class="text-primary text-center pb-3">INSCRIVEZ-VOUS</h3>
+                                <div class="p-4">
+                                    <form>
+                                        <div class="form-group">
+                                            <input type="email" name="email" #email class="form-control required mb-4"
+                                                placeholder="Votre adresse Email *">
+                                            <input type="password" name="password" #pwd class="form-control"
+                                                placeholder="Mot de passe">
+                                        </div>
+                                    </form>
+                                    <button class="btn btn-block btn-primary"
+                                        (click)="register(email.value,pwd.value)">Créer un compte</button>
+                                    <div *ngIf="user" class="alert-success"> Votre Compte a été créé avec succes
+                                        {{ user.email }}</div>
+                                    <div class="d-flex flex-column justify-content-center mt-5 mb-3 p-4 bg-light ">
+
+                                        <button class="btn btn-outline-primary" id="connecter">Déja
+                                            inscrit? Connectez-vous</button>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->

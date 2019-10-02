@@ -1,0 +1,264 @@
+<div class="row  text-primary my-4 border-bottom border-primary border-2">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-8 " style="font-weight: 600">
+        <h4 class=" text-center w-100 p-3 m-0 ">Demande d'ouverture de Compte Epargne</h4>
+    </div>
+    <div class="col-sm-2 ">
+        <a style="font-size: 24px" *ngIf="userLogin?.commentaire" href="#modalCommentaire" data-toggle="modal">
+            <i class="mw-50 mh-50 position:relative far fa-bell" style="width :30px;height:25px">
+                <h4 class="mw-15 mh-15 border rounded-circle bg-danger text-center text-white mb-0"
+                    style="width :15px;height:15px;position:absolute;left:6%;top:-0.005%">
+                </h4>
+            </i>
+        </a>
+    </div>
+</div>
+<form class="p-3 font-weight-bold bg-light border border-primary border-1 " *ngIf="userLogin">
+    <h6 class="mb-3">IDENTITE</h6>
+    <div class="form-group">
+        <label for="myGenre" class="text-primary">Genre *</label>
+        <div class="form-group ">
+            <div class="form-check font-weight-normal">
+                <input type="radio" class="form-check-input" name="sexe" [(ngModel)]="form.genre" id="myRadio"
+                    value="Monsieur">
+                <label for="myRadio" class="form-check-label">Monsieur</label>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="form-check font-weight-normal">
+                <input type="radio" class="form-check-input" name="sexe" [(ngModel)]="form.genre" id="myRadio1"
+                    value="Madame">
+                <label for="myRadio1" class="form-check-label">Madame</label>
+            </div>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="col-12 col-sm-4 form-group">
+            <label class="text-primary" for="myNom">Nom *</label>
+            <input type="text" name="nom" [(ngModel)]="form.nom" id="myNom" class="form-control">
+        </div>
+        <div class="col-12 col-sm-4 form-group">
+            <label class="text-primary" for="myPrenom">Prenom *</label>
+            <input type="text" name="prenom" [(ngModel)]="form.prenom" id="myPrenom" class="form-control">
+        </div>
+        <div class="col-12 col-sm-4 form-group  ">
+            <label class="text-primary" for="mySpro">Situation professionnelle *</label>
+            <select id="mySpro" name="situationPro" [(ngModel)]="form.situationPro" class="form-control">
+                <option value="Developpeur" selected>Developpeur</option>
+                <option value="Banquier">Banquier</option>
+                <option value="Instituteur">Instituteur</option>
+            </select>
+        </div>
+    </div>
+    <div class="form-row">
+
+        <div class="col-12 col-sm-4 form-group">
+            <label class="text-primary" for="myDate">Date de naissance *</label>
+            <input type="date" id="myDate" name=" dateNaissance" [(ngModel)]="form.dateNaissance" class="form-control">
+        </div>
+        <div class="col-12 col-sm-4 form-group ">
+            <label class="text-primary" for="myLieuNais">Lieu de naissance *</label>
+            <input type="text" id="myLieuNais" name=" lieuNaissance" [(ngModel)]="form.lieuNaissance "
+                class="form-control">
+        </div>
+        <div class="col-12 col-sm-4 form-group">
+            <label class="text-primary" for="myNation">Nationalité *</label>
+            <input type="text" id="myNation" name="nationalite" [(ngModel)]="form.nationalite" class="form-control">
+        </div>
+    </div>
+    <h6 class="my-3">ADRESSE</h6>
+    <div class="form-row">
+        <div class="col-12 col-sm-4 form-group">
+            <label class="text-primary" for="myPays">Pays *</label>
+            <select id="myPays" name="pays" [(ngModel)]="form.pays" class="form-control">
+                <option value="Senegal" selected>Senegal</option>
+                <option value="France">France</option>
+                <option value="Niger">Niger</option>
+            </select>
+        </div>
+        <div class="col-12 col-sm-4 form-group">
+            <label class="text-primary" for="myVille">Ville *</label>
+            <input type="text" id="myVille" name="ville" [(ngModel)]="form.ville" class="form-control">
+        </div>
+        <div class="col-12 col-sm-4 form-group">
+            <label class="text-primary" for="myRegion">Région:</label>
+            <input type="text" id="myRegion" name="region" [(ngModel)]="form.region" class="form-control">
+        </div>
+    </div>
+    <div class="form-row">
+
+        <div class="col-12 col-sm-4 form-group">
+            <label class="text-primary" for="myAdresse">Adresse *</label>
+            <input type="text" id="myAdresse" name="adresse" [(ngModel)]="form.adresse" class="form-control">
+        </div>
+        <div class="col-12 col-sm-4 form-group">
+            <label class="text-primary" for="myTel">Téléphone *</label>
+            <input type="tel" id="myTel" name="telephone" [(ngModel)]="form.telephone" class="form-control">
+        </div>
+    </div>
+    <h6 class="my-3">MES DOCUMENTS JUSTICATIFS</h6>
+    <div class="form-row">
+
+        <!-- <div class="col-12 col-sm-4 form-group">
+            <label class="text-primary" for="myPhoto">Selectionner photo *</label>
+            <input type="file" id="myPhoto" #photoRef name="photo" (change)="chargerPhoto(photoRef.files)"
+                class="form-control-file">
+        </div> -->
+        <div class="col-12 col-sm-4  ">
+            <div class="row mt-3">
+                <div class="col-sm-2 ">
+                    <div class="d-flex justify-content-center">
+                        <img class=" mw-100 mh-100 rounded-circle" style="height:40px;width:40px"
+                            [src]="_d.bypassSecurityTrustUrl(photo)">
+                    </div>
+                </div>
+                <div class="col-sm-8 mb-2">
+                    <div class="d-flex justify-content-center">
+                        <label class="w-100 btn btn-outline-primary" for="myPhoto">Photo
+                            <input type="file" id="myPhoto" #photoRef name="photo"
+                                (change)="chargerPhoto(photoRef.files)" class="form-control-file" hidden>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-sm-12">
+                    <div class="alert alert-success" *ngIf="fileTof?.photo">
+                        <button type="button" class="close" data-dismiss="alert">x</button>
+                        Photo envoyée avec success
+                    </div>
+                    <div class="alert-danger" *ngIf="userLogin?.photoArevoir">
+                        Veuillez revoir la photo svp
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-sm-4 ">
+            <div class="row mt-3 ">
+                <div class="col-sm-2 ">
+                    <div class="d-flex justify-content-center">
+
+                        <img class=" mw-100 mh-100 rounded-circle" style="height:40px;width:40px"
+                            [src]="_d.bypassSecurityTrustUrl(cni)">
+                    </div>
+                </div>
+                <div class="col-sm-8 mb-2">
+                    <div class="d-flex justify-content-center">
+                        <label class="w-100 btn btn-outline-primary" for="myCni">Carte d'Identité Nationale
+                            <input type="file" id="myCni" #cniRef name="cni" (change)="chargerCni(cniRef.files)"
+                                class="form-control-file" hidden>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-sm-12">
+                    <div class="alert alert-success" *ngIf="fileCn?.cni">
+                        <button type="button" class="close" data-dismiss="alert">x</button>
+                        CNI envoyée avec success
+                    </div>
+                    <div class="alert-danger" *ngIf="userLogin?.cniArevoir">
+                        Veuillez revoir la CNI svp
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-sm-4 ">
+            <div class="row mt-3">
+                <div class="col-sm-2 ">
+                    <div class="d-flex justify-content-center">
+
+                        <img class=" mw-100 mh-100 rounded-circle" style="height:40px;width:40px"
+                            [src]="_d.bypassSecurityTrustUrl(facture)">
+                    </div>
+                </div>
+                <div class="col-sm-8 mb-2">
+                    <div class="d-flex justify-content-center">
+                        <label class="w-100 btn btn-outline-primary" for="myFacture">Justificatif d'adresse
+                            <input type="file" id="myFacture" #factureRef name="facture"
+                                (change)="chargerFacture(factureRef.files)" class="form-control-file" hidden>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-sm-12">
+                    <div class="alert alert-success" *ngIf="fileFac?.facture">
+                        <button type="button" class="close" data-dismiss="alert">x</button>
+                        Justificatif d'adresse envoyé avec success
+                    </div>
+                    <div class="alert-danger" *ngIf="userLogin?.factureArevoir">
+                        Veuillez revoir la facture svp
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+<div class="row p-3 ">
+    <div class="col-12 col-sm-4 mx-auto">
+        <button type="button" class="btn btn-block btn-primary" style="background-color: #294070;"
+            (click)=envoyerForm()>ENVOYER</button>
+    </div>
+</div>
+<div class="row">
+    <div *ngIf="userData?.demandeOuverture==true" class="col-12 col-sm-8 mx-auto alert-success ">
+        <p class="text-center "> Votre demande d'ouverture de compte est envoyée avec Success!
+        </p>
+    </div>
+    <!-- <div *ngIf="userData?.demandeOuverture==true" class="col-12 col-sm-8 mx-auto alert-success ">
+        <p class="text-center "> Votre demande d'ouverture de compte est envoyée avec Success!
+        </p>
+    </div> -->
+</div>
+<!-- <div class="row m-4">
+    <div class="col-12 col-sm-8 mx-auto ">
+        <p class="text-center alert-danger">Pour pouvoir telecharger ou signer la convention vos documents
+            justificatifs doivent etre
+            validés</p>
+
+    </div>
+</div> -->
+<!-- <form>
+    <fieldset [disabled]="!userLogin?.etatDossier">
+        <div class="form-row">
+            <div class="col-12 col-sm-4 mx-auto ">
+                <h5 class="text-center">La Convention</h5>
+
+
+                <pdf-viewer [src]="conventionSrc" [fit-to-page]="true" [original-size]="false" [render-text]="false"
+                    style="display:block;">
+                </pdf-viewer>
+
+
+                 <img class="w-100 " [src]="_d.bypassSecurityTrustUrl(conventionSrc)"> 
+                <label class="w-100 btn btn-primary" for="myConvention">Envoyer la convention
+                    <input type="file" #conventionRef name="convention" id="myConvention"
+                        (change)="chargerConvention(conventionRef.files)" class="form-control-file" hidden>
+                </label>
+            </div>
+        </div>
+    </fieldset>
+</form> -->
+
+
+
+
+<!-- modal commentaire -->
+<div class="modal" id="modalCommentaire" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog ">
+        <div class="modal-content">
+            <div class="modal-header" style="background-color:  #294070">
+                <h4 class="modal-title text-center text-white">Notification</h4>
+                <button type="button" class="close text-white" data-dismiss="modal">&times;</button>
+            </div>
+            <!-- Modal body -->
+            <div class="modal-body p-4">
+                {{userLogin?.commentaire}}
+            </div>
+
+
+        </div>
+    </div>
+
+</div>

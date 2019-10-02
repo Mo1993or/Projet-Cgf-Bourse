@@ -1,0 +1,86 @@
+<div class="modal" id="myModalConnexion" data-backdrop="static" data-keyboard="false" role="dialog"
+    aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content  ">
+            <div class="modal-body p-0">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="d-flex flex-column justify-content-center position-relative d-none d-lg-block col-lg-7"
+                            style="background-color:#4493D2">
+
+                            <div class=""
+                                style="border: 0.5rem solid white;position:absolute;top:5%;left:5%;right:5%;bottom:5%">
+
+
+                            </div>
+                            <div class="position-absolute"
+                                style="top:5%;bottom:5%;left:17%;right:17%;background-color: #4493D2">
+
+                            </div>
+                            <div class="d-flex flex-column justify-content-center position-absolute"
+                                style="top:20%;bottom:20%;left:5%;right:5%;background-color: #4493D2">
+                                <div class="text-white d-none d-lg-block text-center" style="font-size:2rem">
+                                    Connectez-vous dans votre espace utilisateur et faites tout en ligne
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-5 ">
+                            <button type="button" #btnClose class="close" data-dismiss="modal">&times;</button>
+                            <div class="d-flex flex-column justify-content-center py-5 px-2">
+
+                                <h3 style="color: #4493D2 " class=" text-center pb-3">CONNECTEZ-VOUS</h3>
+                                <div class="p-4">
+                                    <form #connexionForm="ngForm" (ngSubmit)="connecter()">
+                                        <div class="form-group">
+                                            <input type="email" name="login" id="login" required
+                                                [(ngModel)]="form.login" #login="ngModel" minlength="7"
+                                                class="form-control mb-3" placeholder="Adresse Email">
+                                            <div *ngIf="login.invalid && (login.dirty || login.touched)"
+                                                class="alert alert-danger">
+                                                <button type="button" class="close" data-dismiss="alert"
+                                                    aria-label="Close">x</button>
+                                                <div *ngIf="login.errors.required">
+                                                    Email obligatoire.
+                                                </div>
+                                                <div *ngIf="login.errors.minlength">
+                                                    Email doit avoir au min 7 caractères.
+                                                </div>
+                                            </div>
+                                            <input type="password" name="password" id="password" required
+                                                [(ngModel)]="form.password" #password="ngModel" minlength="7"
+                                                class="form-control" placeholder="Mot de passe">
+                                            <div *ngIf="password.invalid && (password.dirty || password.touched)"
+                                                class="alert alert-danger">
+                                                <button type="button" class="close" data-dismiss="alert"
+                                                    aria-label="Close">x</button>
+                                                <div *ngIf="password.errors.required">
+                                                    Mot de passe obligatoire.
+                                                </div>
+                                                <div *ngIf="password.errors.minlength">
+                                                    Mot de passe doit avoir au min 7 caractères.
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <button type="submit" class="btn btn-block text-white "
+                                            style="background-color: #294070">Connexion</button>
+                                    </form>
+
+                                    <div *ngIf="userLogin" class="my-1 alert alert-danger">
+                                        <button type="button" class="close" data-dismiss="alert"
+                                            aria-label="Close">x</button> {{userLogin}}
+                                    </div>
+                                    <div class="d-flex flex-column justify-content-center mt-5 mb-3 p-4 bg-light ">
+                                        <h1 class="text-center" style="font-size:1rem">Nouveau chez CGF Bourse?</h1>
+                                        <p class="text-muted text-center">Inscrivez-vous dès maintenant</p>
+                                        <button id="inscrire" class="btn btn-outline-primary">S'inscrire</button>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

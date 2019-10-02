@@ -1,0 +1,226 @@
+<div class="modal" id="myModalInscription" data-backdrop="static" role="dialog" data-keyboard="false"
+    aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content  ">
+            <div class="modal-body p-0">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="d-flex flex-column justify-content-center position-relative d-none d-lg-block col-lg-7 "
+                            style="background-color: #4493D2">
+
+                            <div class=""
+                                style="border: 0.5rem solid white;position:absolute;top:5%;left:5%;right:5%;bottom:5%">
+                            </div>
+                            <div class=" position-absolute"
+                                style="top:5%;bottom:5%;left:17%;right:17%;background-color: #4493D2">
+
+                            </div>
+                            <div class="d-flex flex-column justify-content-center  position-absolute"
+                                style="top:20%;bottom:20%;left:5%;right:5%;background-color: #4493D2">
+                                <div class="text-white d-none d-lg-block text-center" style="font-size:2rem">
+                                    Inscrivez-vous et continuez la procédure pour ouvrir un compte épargne facilement
+                                    et tout en ligne
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-5 ">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <div class="d-flex flex-column justify-content-center py-5 px-2">
+
+                                <h3 class=" text-center pb-3" style="color:#4493D2">INSCRIVEZ-VOUS</h3>
+                                <div class="p-4">
+                                    <form>
+                                        <div class="form-group">
+                                            <input type="text" name="prenom" [(ngModel)]="form.prenom"
+                                                class="form-control required mb-4" placeholder="Votre Prenom *">
+                                            <input type="text" name="nom" [(ngModel)]="form.nom"
+                                                class="form-control required mb-4" placeholder="Votre Nom *">
+                                            <input type="email" name="email" [(ngModel)]="form.login"
+                                                class="form-control required mb-4" placeholder="Votre adresse Email *">
+                                            <input type="password" name="password" [(ngModel)]="form.password"
+                                                class="form-control mb-4" placeholder="Mot de passe">
+                                            <input type="password" name="password2" [(ngModel)]="password2"
+                                                class="form-control" placeholder="Confirmer Mot de passe">
+                                        </div>
+                                    </form>
+                                    <button class="btn btn-block text-white" style="background-color: #294070"
+                                        (click)="register()">Créer un
+                                        compte</button>
+                                    <div *ngIf="userRegister" class=" my-1 alert-success"> Inscription réussie:
+                                        <p>avec vos Identifiants:</p>
+                                        {{ userRegister.login }}</div>
+                                    <div class="d-flex flex-column justify-content-center mt-3 mb-2 p-3 bg-light ">
+
+                                        <button class="btn btn-outline-primary" id="connecter">Déja
+                                            inscrit? Connectez-vous</button>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div style="padding-top: 3%">
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item" style="background-color: #39B0FB;color: white">
+            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home"
+                aria-selected="true">
+                <h4>Ouvrir Compte</h4>
+            </a>
+        </li>
+        <li class="nav-item" style="background-color: #39B0FB;color: white">
+            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile"
+                aria-selected="false">
+                <h4>Information Compte</h4>
+            </a>
+        </li>
+        <li class="nav-item" style="background-color: #39B0FB;color: white">
+            <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact"
+                aria-selected="false">
+                <h4>Profilage Client</h4>
+            </a>
+        </li>
+    </ul>
+    <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+
+            <br /><br />
+            <h4 style="color:  #39B0FB;text-align: center">Ouvrir Compte</h4>
+            <hr color="#39B0FB" width="75%">
+            <h5>IDENTITE</h5>
+            <h5 style="color:  #39B0FB;text-align: left;">Genre
+            </h5>
+
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1"
+                    checked>
+                <label class="form-check-label" for="exampleRadios1">
+                    Monsieur
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                <label class="form-check-label" for="exampleRadios2">
+                    Madame
+                </label>
+            </div>
+            <form>
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+
+                        <h5 style="color:  #39B0FB;text-align: left;">Prenom
+                        </h5>
+
+                        <input type="text" class="form-control" placeholder="First name">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <h5 style="color:  #39B0FB;text-align: left;">Nom
+                        </h5>
+                        <input type="text" class="form-control" placeholder="Last name">
+                    </div>
+                    <div class="form-group col-md-4">
+
+                        <h5 style="color:  #39B0FB;text-align: left;">Situation professionnel
+                        </h5>
+
+                        <input type="text" class="form-control" placeholder="First name">
+                    </div>
+                </div>
+                <div class="form-row">
+
+                    <div class="form-group col-md-4">
+                        <h5 style="color:  #39B0FB;text-align: left;">Date de naissance
+                        </h5>
+                        <input type="date" class="form-control" placeholder="Last name">
+                    </div>
+                    <div class="form-group col-md-4">
+
+                        <h5 style="color:  #39B0FB;text-align: left;">Lieu de naissance
+                        </h5>
+
+                        <input type="text" class="form-control" placeholder="First name">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <h5 style="color:  #39B0FB;text-align: left;">Nationalité
+                        </h5>
+                        <input type="text" class="form-control" placeholder="Last name">
+                    </div>
+                </div>
+                <div class="form-row">
+
+
+                    <div class="form-group col-md-4">
+
+                        <h5 style="color:  #39B0FB;text-align: left;">Pays de Residence
+                        </h5>
+
+                        <input type="text" class="form-control" placeholder="First name">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <h5 style="color:  #39B0FB;text-align: left;">Adresse
+                        </h5>
+                        <input type="text" class="form-control" placeholder="Last name">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <h5 style="color:  #39B0FB;text-align: left;">Telephone
+                        </h5>
+                        <input type="text" class="form-control" placeholder="Last name">
+                    </div>
+                </div>
+
+
+                <h4 style="color: black;text-align: left;">Mes documents justificatifs
+                </h4>
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                        <h5 style="color:  #39B0FB;text-align: left;">Photo CNI
+                        </h5>
+                        <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <h5 style="color:  #39B0FB;text-align: left;">Photocopie CNI
+                        </h5>
+                        <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <h5 style="color:  #39B0FB;text-align: left;">Justificatif adresse
+                        </h5>
+                        <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                    </div>
+                </div>
+
+                <div class="form-group col-md-4" style="margin-left: 34%">
+                    <button class="btn btn-block btn-primary">Envoyer</button>
+                </div>
+            </form>
+
+            <div class="alert alert-danger" role="alert">
+                Alerte Document
+            </div>
+
+            <div class="alert alert-danger" role="alert">
+                Alerte Convention
+            </div>
+
+        </div>
+        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">...</div>
+        <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">...</div>
+    </div>
+</div> -->

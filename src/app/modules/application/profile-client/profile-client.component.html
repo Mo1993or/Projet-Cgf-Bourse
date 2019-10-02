@@ -1,0 +1,42 @@
+<div class="row p-4">
+    <div class="col-12 col-sm-12 col-md-12 col-xl-12">
+        <ul class="nav nav-tabs" style="font-weight: 600;font-size:20px" id="myTab">
+            <li class="nav-item">
+                <a class="nav-link active" id="tab-javascript" data-toggle="tab" href="#content-javascript">
+                    Ouverture compte
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="tab-info" data-toggle="tab" href="#content-info">
+                    Information Compte
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link " id="tab-profilage" data-toggle="tab" href="#content-profilage">
+                    Profilage
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link " id="tab-bootstrap" data-toggle="tab" href="#content-bootstrap">
+                    Parametres
+                </a>
+            </li>
+        </ul>
+
+        <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="content-javascript">
+                <app-form-ouverture-compte [userLogin]="userLogin" *ngIf="userLogin"></app-form-ouverture-compte>
+
+            </div>
+            <div class="tab-pane fade" id="content-info">
+                <app-info-compte [userCompte]="userCompte" [comptes]="comptes"  [profilage]="profilage"></app-info-compte>
+            </div>
+            <div class="tab-pane fade" id="content-profilage">
+                <app-form-profilage></app-form-profilage>
+            </div>
+            <div class="tab-pane fade " id="content-bootstrap">
+
+            </div>
+        </div>
+    </div>
+</div>

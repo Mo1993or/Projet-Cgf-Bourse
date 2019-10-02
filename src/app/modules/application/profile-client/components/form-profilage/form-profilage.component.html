@@ -1,0 +1,453 @@
+<h4 class="text-center p-3 my-4 text-primary border-bottom border-primary border-2" style="font-weight: 600">Profilage
+    et souscription produit
+</h4>
+<form class="p-3 font-weight-bold">
+
+    <div class="form-group">
+        <label for="myGenre" class="text-primary">Durée de votre investissement *</label>
+        <div class="form-group ">
+            <div class="form-check font-weight-normal">
+                <input type="radio" class="form-check-input" name="temps" [(ngModel)]="form.temps" id="myRadio1"
+                    value="12">
+                <label for="myRadio1" class="form-check-label"> 1 à 2ans</label>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="form-check font-weight-normal">
+                <input type="radio" class="form-check-input" name="temps" [(ngModel)]="form.temps" id="myRadio2"
+                    value="35">
+                <label for="myRadio2" class="form-check-label">3 à 5ans</label>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="form-check font-weight-normal">
+                <input type="radio" class="form-check-input" name="temps" [(ngModel)]="form.temps" id="myRadio3"
+                    value="57">
+                <label for="myRadio3" class="form-check-label">5 à 7ans</label>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="myGenre" class="text-primary">Quels type de projet avez-vous?*</label>
+        <div class="form-group ">
+            <div class="form-check font-weight-normal">
+                <input type="radio" class="form-check-input" name="projet" [(ngModel)]="form.projet" id="myRadio4"
+                    value="immobilier">
+                <label for="myRadio4" class="form-check-label"> Immobilier</label>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="form-check font-weight-normal">
+                <input type="radio" class="form-check-input" name="projet" [(ngModel)]="form.projet" id="myRadio5"
+                    value="Retraite">
+                <label for="myRadio5" class="form-check-label">Retraites</label>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="form-check font-weight-normal">
+                <input type="radio" class="form-check-input" name="projet" [(ngModel)]="form.projet" id="myRadio6"
+                    value="etudeEnfants">
+                <label for="myRadio6" class="form-check-label">Etude pour les enfants</label>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="form-check font-weight-normal">
+                <input type="radio" class="form-check-input" name="projet" [(ngModel)]="form.projet" id="myRadio53"
+                    value="Capitale">
+                <label for="myRadio63" class="form-check-label">Constitution d'un capitale</label>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="myGenre" class="text-primary">Capacité à épargner périodiquement *</label>
+        <div class="form-group ">
+            <div class="form-check font-weight-normal">
+                <input type="radio" class="form-check-input" name="horizon" [(ngModel)]="form.horizon" id="myRadio7"
+                    value="mensuel">
+                <label for="myRadio4" class="form-check-label"> Mensuellement</label>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="form-check font-weight-normal">
+                <input type="radio" class="form-check-input" name="horizon" [(ngModel)]="form.horizon" id="myRadio8"
+                    value="annuelle">
+                <label for="myRadio8" class="form-check-label">Annuellement</label>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="form-check font-weight-normal">
+                <input type="radio" class="form-check-input" name="horizon" [(ngModel)]="form.horizon" id="myRadio9"
+                    value="semestrielle">
+                <label for="myRadio9" class="form-check-label">Semestriellement</label>
+            </div>
+        </div>
+        <div class="col-12 col-sm-4 form-group">
+            <label class="text-primary" for="myPrenom">Montant à épargner *</label>
+            <input type="text" name="montant" [(ngModel)]="form.montant" id="myMontant" class="form-control">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="myGenre" class="text-primary">Aimez-vous prendre des risques pour gagner plus d'argent ? *</label>
+        <div class="form-group ">
+            <div class="form-check font-weight-normal">
+                <input type="radio" class="form-check-input" name="risque" [(ngModel)]="form.risque" id="myRadio10"
+                    value="prudent">
+                <label for="myRadio10" class="form-check-label">Pas du tout </label>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="form-check font-weight-normal">
+                <input type="radio" class="form-check-input" name="risque" [(ngModel)]="form.risque" id="myRadio11"
+                    value="equilibrer">
+                <label for="myRadio11" class="form-check-label">Defois</label>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="form-check font-weight-normal">
+                <input type="radio" class="form-check-input" name="risque" [(ngModel)]="form.risque" id="myRadio12"
+                    value="Dynamique">
+                <label for="myRadio12" class="form-check-label">Oui</label>
+            </div>
+        </div>
+    </div>
+    <div class="row p-3">
+        <div class="col-12 col-sm-4 mx-auto">
+            <button type="button" class="btn btn-block btn-primary" (click)=envoyerForm()>ENVOYER</button>
+        </div>
+    </div>
+    <div *ngIf="alertdanger" class="col-12 col-sm-8 mx-auto alert-danger ">
+        <p class="text-center "> {{alertdanger}}
+        </p>
+    </div>
+
+    <div *ngIf="produitc" class="accordion" id="accordionExample">
+        <div class="card">
+            <div class="card-header" id="headingOne">
+                <h2 class="mb-0">
+                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne"
+                        aria-expanded="true" aria-controls="collapseOne">
+                        {{produitc}}
+                    </button>
+                </h2>
+            </div>
+
+            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                <div class="card-body">
+                    <div class="text-center" style="color:blue">FCP CROISSANCE</div>
+
+
+
+
+
+                    FCP Dynamique : le fonds est ouvert à tout souscripteur souhaitant profiter pleinement de la
+                    rentabilité
+                    du marché des
+                    actions tout en acceptant des fortes fluctuations sur son capital.
+
+
+
+                    Classification Titres du marché financier de l'UEMOA
+                    Objectif de gestion PLACEMENT CROISSANCE est un fonds actions pouvant investir dans tous types de
+                    produits financiers
+                    dans les limites fixées par la réglementation et l'orientation de gestion.
+                    Stratégie d'investissement
+                    Actions et assimilés : 75% ;
+                    Obligations / assimilés et autres titres à revenu fixe : 20% ;
+                    Liquidités : 5%.
+                    Durée minimale de placement recommandée 5 ans minimum.
+                    Valeur liquidative d'origine 1 000 FCFA
+                    Politique de distribution Les revenus du Fonds peuvent être distribués ou réinvestis dans le FCP.
+                    Garantie de liquidité Les parts sont cessibles à tout moment sous les conditions défi nies dans le
+                    règlement du fonds.
+                    <div class="row p-3">
+                        <div class="col-12 col-sm-4 mx-auto">
+                            <button type="button" class="btn btn-block btn-primary"
+                                (click)=souscrirec()>SOUSCRIRE</button>
+                        </div>
+                    </div>
+                    <div *ngIf="alert" class="col-12 col-sm-8 mx-auto alert-success ">
+                        <p class="text-center "> {{alert}}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="produita" class="accordion" id="accordionExample">
+        <div class="card">
+            <div class="card-header" id="headingOne">
+                <h2 class="mb-0">
+                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne1"
+                        aria-expanded="true" aria-controls="collapseOne1">
+                        {{produita}}
+                    </button>
+                </h2>
+            </div>
+
+            <div id="collapseOne1" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                <div class="card-body">
+                    <div class="text-center" style="color:blue">FCP AVANTAGE</div>
+
+
+
+                    FCP Prudent : le fonds est ouvert à tout souscripteur souhaitant profiter des rendements du marché
+                    monétaire et
+                    obligataire, tout en profitant modérément des rendements du marché des actions, en acceptant de
+                    faibles
+                    fluctuations de
+                    son capital.
+
+
+
+                    Classification Titres du marché financier de l'UEMOA
+                    Objectif de gestion PLACEMENT AVANTAGE est un fonds obligataire pouvant investir dans tous types de
+                    produits financiers
+                    dans les limites fixées par la réglementation et l'orientation de gestion.
+                    Stratégie d'investissement
+                    Actions et assimilés : 20% ;
+                    Obligations / assimilés et autres titres à revenu fixe : 75% ;
+                    Liquidités : 5%.
+                    Durée minimale de placement recommandée 3 ans minimum.
+                    Valeur liquidative d'origine 1 000 FCFA
+                    Politique de distribution
+                    Les revenus du Fonds peuvent être capitalisés ou distribués.
+                    Garantie de liquidité Les parts sont cessibles à tout moment sous les conditions définies dans le
+                    règlement du fonds.
+                    <div class="row p-3">
+                        <div class="col-12 col-sm-4 mx-auto">
+                            <button type="button" class="btn btn-block btn-primary"
+                                (click)=souscrirea()>SOUSCRIRE</button>
+                        </div>
+                    </div>
+                    <div *ngIf="alert" class="col-12 col-sm-8 mx-auto alert-success ">
+                        <p class="text-center "> {{alert}}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="produitq" class="accordion" id="accordionExample">
+        <div class="card">
+            <div class="card-header" id="headingOne">
+                <h2 class="mb-0">
+                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne2"
+                        aria-expanded="true" aria-controls="collapseOne2">
+                        {{produitq}}
+                    </button>
+                </h2>
+            </div>
+
+            <div id="collapseOne2" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                <div class="card-body">
+                    <div class="text-center" style="color:blue">FCP QUIÉTUDE</div>
+
+
+
+                    FCP Sécurisé : le fonds est ouvert à tout souscripteur souhaitant profiter des rendements du marché
+                    monétaire et
+                    obligataire tout en acceptant aucune fluctuation de son capital.
+
+
+
+                    Classification Titres du marché financier de l'UEMOA
+                    Objectif de gestion PLACEMENT QUIETUDE est un fonds obligataire diversifié pouvant investir dans
+                    tous
+                    types de produits
+                    financiers dans les limites fixées par la réglementation et l'orientation de gestion.
+                    Stratégie d'investissement
+                    Obligations moyen et long terme et titres assimilés : 50%
+                    Obligations court terme / Bons du Trésor et autres produits monétaires assimilés : 50%
+                    Durée minimale de placement recommandée Ce produit est considéré comme liquide et peut aussi bien
+                    être
+                    envisagé pour un
+                    placement à court terme que pour un placement à moyen et long terme
+                    Valeur liquidative d'origine 1 000 FCFA
+                    Politique de distribution Les revenus du Fonds sont réinvestis dans le FCP.
+                    Garantie de liquidité Les parts sont cessibles à tout moment sous les conditions définies dans le
+                    règlement du fonds.
+
+                    <div class="row p-3">
+                        <div class="col-12 col-sm-4 mx-auto">
+                            <button type="button" class="btn btn-block btn-primary"
+                                (click)=souscrireq()>SOUSCRIRE</button>
+                        </div>
+                    </div>
+                    <div *ngIf="alert" class="col-12 col-sm-8 mx-auto alert-success ">
+                        <p class="text-center "> {{alert}}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="produith" class="accordion" id="accordionExample">
+        <div class="card">
+            <div class="card-header" id="headingOne">
+                <h2 class="mb-0">
+                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne3"
+                        aria-expanded="true" aria-controls="collapseOne3">
+                        {{produith}}
+                    </button>
+                </h2>
+            </div>
+
+            <div id="collapseOne3" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                <div class="card-body">
+                    <div class="text-center" style="color:blue">FCP HORIZON</div>
+
+
+
+                    FCP équilibré : le fonds est ouvert à tout souscripteur souhaitant profiter des rendements du marché
+                    des actions et des
+                    obligations, tout en acceptant une fluctuation modérée de son capital
+
+
+
+
+
+                    Classification Titres du marché financier de l'UEMOA
+                    Objectif de gestion L'objectif de gestion du FCP est de fournir au grand public, à travers une
+                    politique active
+                    d'investissements, des opportunités de placer son épargne à moyen et long terme. Il recherche un
+                    équilibre entre un
+                    revenu intéressant et la sécurité du capital.
+                    Stratégie d'investissement
+                    Actions : 50%
+                    Obligations et autres titres à revenu fixe : 45%
+                    Liquidités : 5%.
+                    Durée minimale de placement recommandée 2 ans
+                    Valeur liquidative d'origine 1 000 FCFA
+                    Politique de distribution Les dividendes sont distribués annuellement et mis en paiement au plus
+                    tard 6 mois après la
+                    clôture de l'exercice dans les guichets POSTEFINANCES et à CGF BOURSE.
+                    Garantie de liquidité Les parts sont cessibles à tout moment sous les conditions définies dans le
+                    règlement du fonds.
+
+
+                    <div class="row p-3">
+                        <div class="col-12 col-sm-4 mx-auto">
+                            <button type="button" class="btn btn-block btn-primary"
+                                (click)=souscrireh()>SOUSCRIRE</button>
+                        </div>
+                    </div>
+                    <div *ngIf="alert" class="col-12 col-sm-8 mx-auto alert-success ">
+                        <p class="text-center "> {{alert}}
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div *ngIf="produitph" class="accordion" id="accordionExample">
+        <div class="card">
+            <div class="card-header" id="headingOne">
+                <h2 class="mb-0">
+                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne4"
+                        aria-expanded="true" aria-controls="collapseOne4">
+                        {{produitph}}
+                    </button>
+                </h2>
+            </div>
+
+            <div id="collapseOne4" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                <div class="card-body">
+                    <div class="text-center" style="color:blue">FCP PHARMACIE</div>
+
+
+
+                    Personnes physiques et morales résidentes ou non de l'UEMOA et, particulièrement les pharmaciens.
+
+                    Classification Fonds Commun de Placement
+                    Objectif de gestion
+                    Votre fonds commun de placement (FCP) ACTIONS PHARMACIE a pour objectif la gestion d'un portefeuille
+                    de valeurs
+                    mobilières commun aux pharmaciens.
+
+                    Il vous offre l'accès à de nouveaux supports d'investissement permettant de rentabiliser votre
+                    épargne sur le marché
+                    financier de l'Union Economique et Monétaire Ouest Africaine
+
+                    Stratégie d'investissement
+                    Obligations/assimilés et autres titres à revenu fixe : 15 %
+                    Actions et assimilés : 80 %
+                    Liquidités : 5 %
+                    Souscripteurs concernés et profil de risque Personnes physiques et morales résidentes ou non de
+                    l'UEMOA et,
+                    particulièrement les pharmaciens.
+                    Durée minimale de placement recommandée 5 ans minimum
+                    Valeur liquidative d'origine 1 000 FCFA
+                    Politique de distribution Les résultats du FCP ACTIONS PHIE sont distribués sous forme de
+                    dividendes.
+                    Garantie de liquidité Les parts sont cessibles à tout moment sous les conditions défi nies dans le
+                    règlement du fonds.
+
+                    <div class="row p-3">
+                        <div class="col-12 col-sm-4 mx-auto">
+                            <button type="button" class="btn btn-block btn-primary"
+                                (click)=souscrireph()>SOUSCRIRE</button>
+                        </div>
+                    </div>
+                    <div *ngIf="alert" class="col-12 col-sm-8 mx-auto alert-success ">
+                        <p class="text-center "> {{alert}}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="produitAs" class="accordion" id="accordionExample">
+        <div class="card">
+            <div class="card-header" id="headingOne">
+                <h2 class="mb-0">
+                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne5"
+                        aria-expanded="true" aria-controls="collapseOne5">
+                        {{produitAs}}
+                    </button>
+                </h2>
+            </div>
+
+            <div id="collapseOne5" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                <div class="card-body">
+                    <div class="text-center" style="color:blue">FCP ASSUR'SENEGAL</div>
+
+
+
+                    Classification Fonds Commun de Placement
+                    Objectif de gestion
+                    La création du FCP ASSUR'SENEGAL est effectuée à l'initiative conjointe de CGF GESTION et CGF
+                    BOURSE, avec l'accord de
+                    l'Assureur SENASSURANCE VIE.
+
+                    Son objectif est d'élargir la gamme de produits d'investissement offerts par le groupe CGF aux
+                    institutionnels,
+                    principalement afin de leur permettre de profiter des opportunités présentées par la Bourse
+                    Régionale des Valeurs
+                    Mobilières (BRVM) tout en offrant une meilleure liquidité.
+
+                    Stratégie d'investissement
+                    Actions et Assimilés 30%
+                    Obligations/assimilées et autres titres à revenu fixe 65%
+                    Liquidités 5%
+                    Durée minimale de placement recommandée 5 ans minimum
+                    Valeur liquidative d'origine 1 000 000 FCFA
+                    Politique de distribution Les résultats du FCP ACTIONS PHIE sont distribués sous forme de
+                    dividendes.
+                    Garantie de liquidité Les parts sont cessibles à tout moment sous les conditions définies dans le
+                    règlement du fonds.
+                    <div class="row p-3">
+                        <div class="col-12 col-sm-4 mx-auto">
+                            <button type="button" class="btn btn-block btn-primary"
+                                (click)=souscrireAs()>SOUSCRIRE</button>
+                        </div>
+                    </div>
+                    <div *ngIf="alert" class="col-12 col-sm-8 mx-auto alert-success ">
+                        <p class="text-center "> {{alert}}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

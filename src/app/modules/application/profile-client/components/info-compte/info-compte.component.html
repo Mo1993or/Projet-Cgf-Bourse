@@ -1,0 +1,95 @@
+<h4 class="text-center p-3 my-4 text-primary border-bottom border-primary border-2" style="font-weight: 600">
+    Information Compte épargne
+</h4>
+<div class="row">
+    <div class="col-12 col-sm-12">
+        <div class="card">
+            <div class="card-header" style="background-color:#4493D2">
+                <h5 class="mb-0"><a class="text-white">
+                        Mon Solde
+                    </a>
+                </h5>
+            </div>
+        </div>
+        <div class="card-body  border border-primary border-1 ">
+            <table class="table">
+                <thead class="bg-light">
+                    <tr>
+                        <th>Numero de Compte</th>
+                        <th>Montant</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{{userCompte?.numCompte}}</td>
+
+                        <td>{{userCompte?.solde}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<div class="row my-5">
+    <div class="col-12 col-sm-12">
+        <div class="accordion" id="accordionExample2">
+            <div class="card ">
+                <div class="card-header" style="background-color:#4493D2">
+                    <h5 class="mb-0">
+                        <a class="text-white" data-toggle="collapse" href="#collapse1">
+                            Placement
+                        </a>
+                    </h5>
+                </div>
+            </div>
+            <div id="collapse1" class="collapse" data-parent="#accordionExample2">
+                <div class="card-body  border border-primary border-1 ">
+                    <table class="table">
+                        <thead class="bg-light">
+                            <tr>
+                                <th>Produit souscrit</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>{{profilage?.produit}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row my-5">
+    <div class="col-12 col-sm-12">
+        <div class="card">
+            <div class="card-header" style="background-color:#4493D2">
+                <h5 class="mb-0"><a class="text-white">
+                        Mes versements
+                    </a>
+                </h5>
+            </div>
+        </div>
+        <div class="card-body  border border-primary border-1 ">
+            <table class="table">
+                <thead class="bg-light">
+                    <tr>
+                        <th>Services</th>
+                        <th>Montant</th>
+                        <th>Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let compte of comptes">
+
+                        <td *ngIf="userCompte?._id===compte?._id">{{compte?.services}}</td>
+                        <td *ngIf="userCompte?._id===compte?._id">{{compte?.depot}}</td>
+                        <td *ngIf="userCompte?._id===compte?._id">{{compte?.dateVersements}}</td>
+
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
