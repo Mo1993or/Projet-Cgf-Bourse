@@ -32,7 +32,7 @@
     "@syncfusion/ej2-angular-pdfviewer": "^17.2.49",
     "array-to-lower-case": "0.0.2",
     "bootstrap": "^4.3.1",
-    "express": "^4.15.2",
+    "express": "^4.17.3",
     "iv-viewer": "^2.0.1",
     "jquery": "^3.4.1",
     "ng2-image-viewer": "^3.0.4",
